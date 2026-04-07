@@ -170,14 +170,16 @@
       background-clip: text;
       letter-spacing: 1px;
     }
-    /* تنسيق خاص للفيديو ليتوافق مع الإطار */
+    /* تنسيق خاص للفيديو ليتوافق مع الإطار (مُحسَّن) */
     .footer-dev-logo-video {
-      height: 80px;
-      width: auto;
-      object-fit: contain;
+      width: 100%;           /* يملأ عرض الإطار بالكامل */
+      height: auto;          /* يحافظ على نسبة الأبعاد */
+      max-height: 120px;     /* يحدد أقصى ارتفاع عشان يبان واضح ومش صغير */
+      object-fit: contain;   /* يضمن ظهور الفيديو بالكامل بدون تشويه */
       filter: drop-shadow(0 4px 12px rgba(193,154,91,0.3));
       transition: transform 0.3s;
       border-radius: 8px;
+      display: block;        /* يمنع أي فراغات إضافية */
     }
     .footer-dev-frame:hover .footer-dev-logo-video {
       transform: scale(1.05);
