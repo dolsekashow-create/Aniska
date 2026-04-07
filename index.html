@@ -110,7 +110,7 @@
     @media(max-width:900px){.nav-links{display:none;flex-direction:column;position:absolute;top:74px;right:0;left:0;background:var(--navy);padding:20px 5%;gap:4px;border-bottom:2px solid rgba(201,168,76,0.2)}.nav-links.open{display:flex}.nav-toggle{display:flex}.about-grid{grid-template-columns:1fr;gap:36px}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:28px}.hero-stats-bar{gap:28px;flex-wrap:wrap}.hero-content{padding:0 5%}}
     @media(max-width:600px){.features-grid{grid-template-columns:1fr}.products-grid{grid-template-columns:1fr}.services-list{grid-template-columns:1fr}}
 
-    /* ========== Zero-Nine Credit Section ========== */
+    /* ========== Zero-Nine Credit Section (معدلة للفيديو) ========== */
     .footer-bottom {
       padding: 28px 0;
       display: flex;
@@ -156,6 +156,7 @@
       object-fit: contain;
       filter: drop-shadow(0 4px 12px rgba(193,154,91,0.3));
       transition: transform 0.3s;
+      border-radius: 8px; /* تحسين شكلي */
     }
     .footer-dev-frame:hover .footer-dev-logo {
       transform: scale(1.05);
@@ -168,6 +169,18 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: 1px;
+    }
+    /* تنسيق خاص للفيديو ليتوافق مع الإطار */
+    .footer-dev-logo-video {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(193,154,91,0.3));
+      transition: transform 0.3s;
+      border-radius: 8px;
+    }
+    .footer-dev-frame:hover .footer-dev-logo-video {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -220,12 +233,16 @@
     </div>
   </div>
 
-  <!-- ========== Zero-Nine Credit Section (معدّل ليعمل مع السنة) ========== -->
+  <!-- ========== Zero-Nine Credit Section (بالفيديو) ========== -->
   <div class="footer-bottom">
     <span class="footer-copy">© <span id="yr"></span> Aniska Company · <span data-lang="ft-rights">جميع الحقوق محفوظة</span></span>
     <a href="https://zero-nine-rose.vercel.app/" target="_blank" class="footer-dev-frame">
       <span class="footer-dev-label">تم الإنشاء والتطوير بواسطة</span>
-      <img class="footer-dev-logo" src="اللوجو هنا (رابط أو base64)" alt="Zero-Nine">
+      <!-- تم استبدال الصورة بالفيديو -->
+      <video class="footer-dev-logo-video" autoplay loop muted playsinline poster="thumbnail.jpg">
+        <source src="zero-nine-intro.mp4" type="video/mp4">
+        متصفحك لا يدعم عرض الفيديو.
+      </video>
       <span class="footer-dev-name">Zero-Nine for Digital Solutions</span>
     </a>
   </div>
@@ -266,7 +283,7 @@ function sendContact(){const n=document.getElementById('cf-name').value.trim(),e
 function observeFadeIns(){const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>o.observe(el))}
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
 
-// ✅ تعديل أمان للسنة (حتى ما يحصلش خطأ لو العنصر مش موجود)
+// تحديث السنة
 const yearEl = document.getElementById('yr');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
