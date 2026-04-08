@@ -110,7 +110,7 @@
     @media(max-width:900px){.nav-links{display:none;flex-direction:column;position:absolute;top:74px;right:0;left:0;background:var(--navy);padding:20px 5%;gap:4px;border-bottom:2px solid rgba(201,168,76,0.2)}.nav-links.open{display:flex}.nav-toggle{display:flex}.about-grid{grid-template-columns:1fr;gap:36px}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:28px}.hero-stats-bar{gap:28px;flex-wrap:wrap}.hero-content{padding:0 5%}}
     @media(max-width:600px){.features-grid{grid-template-columns:1fr}.products-grid{grid-template-columns:1fr}.services-list{grid-template-columns:1fr}}
 
-    /* ========== Zero-Nine Credit Section (معدلة للفيديو) ========== */
+    /* ========== Zero-Nine Credit Section (بالفيديو) ========== */
     .footer-bottom {
       padding: 28px 0;
       display: flex;
@@ -151,14 +151,15 @@
       font-weight: 600;
       letter-spacing: 0.5px;
     }
-    .footer-dev-logo {
+    .footer-dev-logo-video {
       height: 80px;
+      width: auto;
       object-fit: contain;
       filter: drop-shadow(0 4px 12px rgba(193,154,91,0.3));
       transition: transform 0.3s;
-      border-radius: 8px; /* تحسين شكلي */
+      border-radius: 8px;
     }
-    .footer-dev-frame:hover .footer-dev-logo {
+    .footer-dev-frame:hover .footer-dev-logo-video {
       transform: scale(1.05);
     }
     .footer-dev-name {
@@ -169,20 +170,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: 1px;
-    }
-    /* تنسيق خاص للفيديو ليتوافق مع الإطار (مُحسَّن) */
-    .footer-dev-logo-video {
-      width: 100%;           /* يملأ عرض الإطار بالكامل */
-      height: auto;          /* يحافظ على نسبة الأبعاد */
-      max-height: 120px;     /* يحدد أقصى ارتفاع عشان يبان واضح ومش صغير */
-      object-fit: contain;   /* يضمن ظهور الفيديو بالكامل بدون تشويه */
-      filter: drop-shadow(0 4px 12px rgba(193,154,91,0.3));
-      transition: transform 0.3s;
-      border-radius: 8px;
-      display: block;        /* يمنع أي فراغات إضافية */
-    }
-    .footer-dev-frame:hover .footer-dev-logo-video {
-      transform: scale(1.05);
     }
   </style>
 </head>
@@ -240,7 +227,6 @@
     <span class="footer-copy">© <span id="yr"></span> Aniska Company · <span data-lang="ft-rights">جميع الحقوق محفوظة</span></span>
     <a href="https://zero-nine-rose.vercel.app/" target="_blank" class="footer-dev-frame">
       <span class="footer-dev-label">تم الإنشاء والتطوير بواسطة</span>
-      <!-- تم استبدال الصورة بالفيديو -->
       <video class="footer-dev-logo-video" autoplay loop muted playsinline poster="thumbnail.jpg">
         <source src="zero-nine-intro.mp4" type="video/mp4">
         متصفحك لا يدعم عرض الفيديو.
@@ -254,7 +240,7 @@
 <script>
 const SB='https://aeizymcxnhypvmsdpjum.supabase.co',SK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFlaXp5bWN4bmh5cHZtc2RwanVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0MzIwNjMsImV4cCI6MjA5MDAwODA2M30.J-3YT_hh_KCksLgWKYDtBFbgE456482fzZawDU6nvds';
 const hd={'apikey':SK,'Authorization':'Bearer '+SK};
-const DD={hero:{badge:'شركة أردنية رائدة',title:'<em>Aniska</em><br>Company',subtitle:'للتجارة الدولية · International Trading',desc:'نربط الأسواق العالمية بالأسواق المحلية عبر خبرة راسخة تمتد لأكثر من 10 سنوات في مجال الاستيراد والتصدير، نضمن لك أعلى معايير الجودة وأكثر المسارات اللوجستية كفاءةً.',slides:['https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80','https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&q=80','https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80'],stats:[{num:'+10',label:'سنوات خبرة'},{num:'+50',label:'دولة شريكة'},{num:'+200',label:'عميل'},{num:'+15',label:'منتج'}]},about:{vision:'شركة أردنية رائدة في مجال الاستيراد والتصدير، تأسست بهدف تقديم حلول تجارية متكاملة تربط الأسواق الإقليمية والعالمية بكفاءة عالية وموثوقية تامة.',description:'نتخصص في استيراد وتصدير السلع الغذائية الأساسية كالزيوت النباتية والسكر والقمح، ونحرص على توفيرها وفق أعلى معايير الجودة الدولية.',image:'',services:['استيراد المواد الغذائية','تصدير المنتجات المحلية','الشحن الدولي واللوجستيات','ضمان الجودة والمطابقة','الاستشارات التجارية','إدارة سلسلة التوريد']},products:[{id:1,name:'الزيت النباتي',nameEn:'Vegetable Oil',desc:'زيت نباتي عالي الجودة مستورد من أفضل المصادر العالمية.',descEn:'High-quality vegetable oil imported from the best global sources.',price:'',emoji:'🫙',image:'',colorClass:'oil'},{id:2,name:'السكر الأبيض',nameEn:'White Sugar',desc:'سكر أبيض نقي 100% مكرّر وفق أعلى المعايير.',descEn:'100% pure white sugar refined to the highest standards.',price:'',emoji:'🍬',image:'',colorClass:'sugar'},{id:3,name:'القمح الصلب',nameEn:'Hard Wheat',desc:'قمح صلب عالي الجودة مناسب لصناعة الطحين.',descEn:'High-quality hard wheat for flour production.',price:'',emoji:'🌾',image:'',colorClass:'wheat'}],contact:{phone:'+962 6 XXX XXXX',email:'info@aniska.com',address:'عمّان، المملكة الأردنية الهاشمية',hours:'السبت - الخميس: 8:00 ص - 5:00 م'},appearance:{bgColor:'#F8F3EA',bgImage:'',themeGold:'#C9A84C',themeNavy:'#0D1B2A'}};
+const DD={hero:{badge:'شركة أردنية رائدة',title:'<em>Aniska</em><br>Company',subtitle:'للتجارة الدولية · International Trading',desc:'نربط الأسواق العالمية بالأسواق المحلية عبر خبرة راسخة تمتد لأكثر من 10 سنوات في مجال الاستيراد والتصدير، نضمن لك أعلى معايير الجودة وأكثر المسارات اللوجستية كفاءةً.',slides:['https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80','https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&q=80','https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80'],stats:[{num:'+10',label:'سنوات خبرة'},{num:'+50',label:'دولة شريكة'},{num:'+200',label:'عميل'},{num:'+15',label:'منتج'}]},about:{vision:'شركة أردنية رائدة في مجال الاستيراد والتصدير، تأسست بهدف تقديم حلول تجارية متكاملة تربط الأسواق الإقليمية والعالمية بكفاءة عالية وموثوقية تامة.',description:'نتخصص في استيراد وتصدير السلع الغذائية الأساسية كالزيوت النباتية والسكر والقمح، ونحرص على توفيرها وفق أعلى معايير الجودة الدولية.',image:'',services:['استيراد المواد الغذائية','تصدير المنتجات المحلية','الشحن الدولي واللوجستيات','ضمان الجودة والمطابقة','الاستشارات التجارية','إدارة سلسلة التوريد']},products:[{id:1,name:'الزيت النباتي',nameEn:'Vegetable Oil',desc:'زيت نباتي عالي الجودة مستورد من أفضل المصادر العالمية.',descEn:'High-quality vegetable oil imported from the best global sources.',price:'',emoji:'🫙',image:'',colorClass:'oil'},{id:2,name:'السكر الأبيض',nameEn:'White Sugar',desc:'سكر أبيض نقي 100% مكرّر وفق أعلى المعايير.',descEn:'100% pure white sugar refined to the highest standards.',price:'',emoji:'🍬',image:'',colorClass:'sugar'},{id:3,name:'القمح الصلب',nameEn:'Hard Wheat',desc:'قمح صلب عالي الجودة مناسب لصناعة الطحين.',descEn:'High-quality hard wheat for flour production.',price:'',emoji:'🌾',image:'',colorClass:'wheat'}],contact:{phone:'+962 7 9017 5680',email:'info@aniska.com',address:'عمّان، المملكة الأردنية الهاشمية',hours:'السبت - الخميس: 8:00 ص - 5:00 م'},appearance:{bgColor:'#F8F3EA',bgImage:'',themeGold:'#C9A84C',themeNavy:'#0D1B2A'}};
 let S=JSON.parse(JSON.stringify(DD)),curLang=localStorage.getItem('aniska_lang')||'ar';
 
 const T={en:{'nav-logo-sub':'International Trading','nav-home':'Home','nav-about':'About Us','nav-products':'Products ▾','nav-contact':'Contact Us','hero-badge':'A Leading Jordanian Company','hero-cta1':'Browse Products →','hero-cta2':'Contact Us','feat-tag':'WHY ANISKA','feat-title':'What Sets Us Apart','f1t':'High Quality','f1d':'Our products meet the highest international quality standards','f2t':'Global Reach','f2d':'We provide products not locally available from the best sources','f3t':'Competitive Prices','f3d':'Our products are available at excellent competitive prices','about-tag':'ABOUT US','about-title':'Aniska International Trading','about-sub':'The #1 company in import and export','about-badge':'Years of Success','about-vtitle':'Our Vision & Values','about-vision':'A leading Jordanian company in import and export, providing integrated trade solutions connecting regional and global markets.','prod-tag':'OUR PRODUCTS','prod-title':'The Commodities We Deal With','prod-sub':'The finest essential food commodities from the best global suppliers','why-tag':'OUR ADVANTAGES','why-title':'Why Choose Aniska?','why-sub':'Aniska is the ideal choice for many companies and individuals','w1t':'📜 Long Experience','w1d':'Extensive experience in import and distribution with broad knowledge of global markets.','w2t':'⚡ Competitiveness','w2d':'High competitiveness thanks to competitive prices and product quality.','w3t':'✅ Quality Commitment','w3d':'Committed to high-quality products with strict manufacturing standards.','ct-tag':'CONTACT US','ct-title':'We\'d Love to Hear From You','ct-form':'Send Your Message','ct-send':'Send Message ✉️','ct-info':'Contact Information','ci-addr':'Address','ci-ph':'Phone','ci-em':'Email','ci-hr':'Working Hours','ph-name':'Full Name','ph-email':'Email Address','ph-subject':'Subject','ph-msg':'Your message...','footer-desc':'A leading Jordanian company providing integrated trade solutions connecting regional and global markets.','ft-c1':'Learn More','ft-about':'About Aniska','ft-prod':'Products','ft-contact':'Contact Us','ft-c2':'Contact Us','ft-rights':'All Rights Reserved','_ptag':'Food Commodity','_rm':'Order Now →','_ad':'We specialize in importing essential food commodities meeting the highest international quality standards.','_sv':['Food Import','Local Product Export','International Shipping','Quality Assurance','Trade Consulting','Supply Chain Management']},ar:{'nav-logo-sub':'للتجارة الدولية','nav-home':'الرئيسية','nav-about':'عن الشركة','nav-products':'المنتجات ▾','nav-contact':'تواصل معنا','hero-badge':'شركة أردنية رائدة','hero-cta1':'تصفّح منتجاتنا ←','hero-cta2':'تواصل معنا','feat-tag':'لماذا أنيسكا','feat-title':'ما يميّزنا عن الآخرين','f1t':'جودة عالية','f1d':'منتجاتنا تتميز بأعلى معايير الجودة العالمية','f2t':'انتشار عالمي','f2d':'نوفّر منتجات غير متاحة محلياً من أفضل المصادر','f3t':'أسعار تنافسية','f3d':'منتجاتنا متوفرة بأسعار ممتازة ومنافسة','about-tag':'من نحن','about-title':'شركة أنيسكا للتجارة الدولية','about-sub':'الشركة رقم واحد في مجال الاستيراد والتصدير','about-badge':'سنوات من النجاح','about-vtitle':'رؤيتنا وقيمنا','about-vision':'شركة أردنية رائدة في مجال الاستيراد والتصدير، تأسست بهدف تقديم حلول تجارية متكاملة تربط الأسواق الإقليمية والعالمية بكفاءة عالية وموثوقية تامة.','prod-tag':'منتجاتنا','prod-title':'السلع التي نتعامل بها','prod-sub':'نوفّر أجود أنواع السلع الغذائية الأساسية من أفضل الموردين العالميين','why-tag':'مميزاتنا','why-title':'لماذا تختار أنيسكا؟','why-sub':'شركة أنيسكا للاستيراد والتوزيع هي الخيار الأمثل للعديد من الشركات والأفراد','w1t':'📜 خبرة طويلة','w1d':'تمتلك الشركة خبرة طويلة في مجال الاستيراد والتوزيع مما يمنحها معرفة واسعة بالأسواق العالمية.','w2t':'⚡ قدرة تنافسية','w2d':'تتمتع الشركة بقدرة تنافسية عالية في الأسواق المحلية بفضل أسعارها التنافسية وجودة منتجاتها.','w3t':'✅ التزام بالجودة','w3d':'تلتزم الشركة بتقديم منتجات وخدمات عالية الجودة بتطبيق معايير صارمة في التصنيع والتغليف.','ct-tag':'تواصل معنا','ct-title':'نسعد بتواصلكم','ct-form':'أرسل رسالتك','ct-send':'إرسال الرسالة ✉️','ct-info':'معلومات التواصل','ci-addr':'العنوان','ci-ph':'الهاتف','ci-em':'البريد','ci-hr':'ساعات العمل','ph-name':'الاسم الكامل','ph-email':'البريد الإلكتروني','ph-subject':'الموضوع','ph-msg':'رسالتك...','footer-desc':'شركة أردنية رائدة في مجال الاستيراد والتصدير، تأسست بهدف تقديم حلول تجارية متكاملة تربط الأسواق الإقليمية والعالمية.','ft-c1':'اعرف عنا أكثر','ft-about':'عن أنيسكا','ft-prod':'المنتجات','ft-contact':'تواصل معنا','ft-c2':'تواصل معنا','ft-rights':'جميع الحقوق محفوظة','_ptag':'سلعة غذائية','_rm':'اطلب الآن →','_ad':'نتخصص في استيراد وتصدير السلع الغذائية الأساسية كالزيوت النباتية والسكر والقمح، ونحرص على توفيرها وفق أعلى معايير الجودة الدولية.','_sv':['استيراد المواد الغذائية','تصدير المنتجات المحلية','الشحن الدولي واللوجستيات','ضمان الجودة والمطابقة','الاستشارات التجارية','إدارة سلسلة التوريد']}};
@@ -276,7 +262,24 @@ function renderProducts(){const e=curLang==='en',cb={oil:'linear-gradient(145deg
 
 function renderAbout(){const a=S.about,e=curLang==='en';document.getElementById('about-description').textContent=e?T.en['_ad']:a.description;const vp=document.getElementById('about-vision-p');if(vp)vp.textContent=T[curLang]['about-vision'];if(a.image)document.getElementById('aboutImgFrame').innerHTML=`<img src="${a.image}" alt="About"/>`;const sv=e?T.en['_sv']:(a.services?.length?a.services:DD.about.services);document.getElementById('servicesList').innerHTML=sv.map(s=>`<div class="service-item">${s}</div>`).join('')}
 
-function renderContact(){const c=S.contact;document.getElementById('ci-address').textContent=c.address;document.getElementById('ci-phone').textContent=c.phone;document.getElementById('ci-email').textContent=c.email;document.getElementById('ci-email').href='mailto:'+c.email;document.getElementById('ci-hours').textContent=c.hours;document.getElementById('ft-phone').textContent=c.phone;document.getElementById('ft-email').textContent=c.email;document.getElementById('ft-address').textContent=c.address}
+function renderContact(){
+  const c=S.contact;
+  document.getElementById('ci-address').textContent=c.address;
+  document.getElementById('ci-phone').textContent=c.phone;
+  document.getElementById('ci-email').textContent=c.email;
+  document.getElementById('ci-email').href='mailto:'+c.email;
+  document.getElementById('ci-hours').textContent=c.hours;
+  
+  // 🔧 إصلاح رابط الهاتف ليشمل الرقم كامل
+  const phoneLink = document.getElementById('ft-phone');
+  if (phoneLink) {
+    phoneLink.textContent = c.phone;
+    phoneLink.href = 'tel:' + c.phone.replace(/\s+/g, ''); // يزيل المسافات فقط
+  }
+  
+  document.getElementById('ft-email').textContent=c.email;
+  document.getElementById('ft-address').textContent=c.address;
+}
 
 function renderMarquee(){const e=curLang==='en',it=S.products.map(p=>e?(p.nameEn||p.name):p.name),al=[...it,...it,...it,...it];document.getElementById('marqueeTrack').innerHTML=al.map(n=>`<span>${n}</span>`).join('')}
 
