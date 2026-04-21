@@ -278,7 +278,9 @@ function renderContact(){
   }
   
   document.getElementById('ft-email').textContent=c.email;
+  document.getElementById('ft-email').href='mailto:'+c.email;
   document.getElementById('ft-address').textContent=c.address;
+  document.getElementById('ft-address').removeAttribute('href');
 }
 
 function renderMarquee(){const e=curLang==='en',it=S.products.map(p=>e?(p.nameEn||p.name):p.name),al=[...it,...it,...it,...it];document.getElementById('marqueeTrack').innerHTML=al.map(n=>`<span>${n}</span>`).join('')}
